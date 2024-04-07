@@ -27,3 +27,48 @@ class Artist(AbstractUser):
 
     def __str__(self):
         return f"{self.username} ({self.first_name} {self.last_name})"
+
+
+class Genre(models.Model):
+    genre_name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ("genre_name",)
+
+    def __str__(self):
+        return self.genre_name
+
+
+class Material(models.Model):
+    material_name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ("material_name",)
+
+    def __str__(self):
+        return self.material_name
+
+
+class Painting(models.Model):
+    artist = models.ForeignKey(
+        Artist,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="artists"
+    )
+    title = models.CharField(max_length=255, blank=True, null=True)
+    creation_year = models.IntegerField()
+    genre = models.ForeignKey(
+        Genre,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="genres"
+    )
+    materials = models.ManyToManyField(Material, related_name="paintings")
+    image_url = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ("title",)
+
+    def __str__(self):
+        return f"{self.title}: {self.artist}, {self.creation_year}"

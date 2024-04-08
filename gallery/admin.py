@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from gallery.models import City, Genre, Material, Painting, Artist
+from gallery.models import City, Genre, Material, Painting, Artist, Country
 
 
 @admin.register(Artist)
@@ -46,3 +46,8 @@ class MaterialAdmin(admin.ModelAdmin):
 @admin.register(Genre)
 class CityAdmin(admin.ModelAdmin):
     search_fields = ("genre_name",)
+
+
+@admin.register(Country)
+class CountryAdmin(admin.ModelAdmin):
+    search_fields = ("country_name",)

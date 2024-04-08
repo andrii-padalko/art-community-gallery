@@ -2,9 +2,25 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 
+class Country(models.Model):
+    country_name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ("country_name",)
+        verbose_name_plural = "countries"
+
+    def __str__(self):
+        return self.country_name
+
+
 class City(models.Model):
     city_name = models.CharField(max_length=255)
-    country = models.CharField(max_length=255)
+    country = models.ForeignKey(
+        Country,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="countries"
+    )
 
     class Meta:
         ordering = ("city_name",)

@@ -35,6 +35,7 @@ class Artist(AbstractUser):
         City,
         on_delete=models.SET_NULL,
         null=True,
+        blank=True,
         related_name="cities"
     )
 
@@ -81,10 +82,10 @@ class Painting(models.Model):
         related_name="genres"
     )
     materials = models.ManyToManyField(Material, related_name="paintings")
-    image_url = models.CharField(max_length=255)
+    image_url = models.CharField(max_length=255, null=True, blank=True,)
 
     class Meta:
         ordering = ("title",)
 
     def __str__(self):
-        return f"{self.title}: {self.artist}, {self.creation_year}"
+        return self.title

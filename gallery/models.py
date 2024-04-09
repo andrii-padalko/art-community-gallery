@@ -43,7 +43,7 @@ class Artist(AbstractUser):
         ordering = ("username",)
 
     def __str__(self):
-        return f"{self.username} ({self.first_name} {self.last_name})"
+        return f"{self.first_name} {self.last_name} ({self.username})"
 
 
 class Genre(models.Model):
@@ -77,13 +77,13 @@ class Material(models.Model):
 
 
 class Painting(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True)
     artist = models.ForeignKey(
         Artist,
         on_delete=models.SET_NULL,
         null=True,
         related_name="artists"
     )
-    title = models.CharField(max_length=255, blank=True, null=True)
     creation_year = models.IntegerField()
     genre = models.ForeignKey(
         Genre,

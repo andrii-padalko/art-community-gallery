@@ -3,12 +3,25 @@
 {% block content %}
   <h1>Artists:</h1>
   {% if artist_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>City</th>
+      </tr>
       {% for artist in artist_list %}
-        <li>{{ artist }}</li>
+        <tr>
+          <td>{{ artist.id }}</td>
+          <td>{{ artist.username }}</td>
+          <td>{{ artist.first_name }}</td>
+          <td>{{ artist.last_name }}</td>
+          <td>{{ artist.city }}</td>
+        </tr>
       {% endfor %}
-    </ul>
-      {% else %}
+    </table>
+  {% else %}
     <p>There are no artists in the gallery.</p>
   {% endif %}
 {% endblock %}

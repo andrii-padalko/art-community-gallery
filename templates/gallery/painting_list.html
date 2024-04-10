@@ -3,11 +3,21 @@
 {% block content %}
   <h1>Paintings:</h1>
   {% if painting_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Artist</th>
+      </tr>
       {% for painting in painting_list %}
-        <li>{{ painting }}</li>
+        <tr>
+          <td>{{ painting.id }}</td>
+          <td>{{ painting.title }}</td>
+          <td>{{ painting.artist.first_name }} {{ painting.artist.last_name }}</td>
+        </tr>
       {% endfor %}
-    </ul>
+
+    </table>
       {% else %}
     <p>There are no paintings in the gallery.</p>
   {% endif %}

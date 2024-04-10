@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Art Community Gallery Home</h1>
+    <p>Welcome to Our Gallery!</p>
+    <h2>Dynamic content</h2>
+    <p>The Art community gallery has the following record counts:</p>
+    <ul>
+        <li><strong>Artists:</strong> {{ num_artists }}</li>
+        <li><strong>Paintings:</strong> {{ num_paintings }}</li>
+        <li><strong>Cities:</strong> {{ num_cities }}</li>
+    </ul>
+
+    <p>You have visited this page
+        {{ num_visits }} time{{ num_visits|pluralize }}.
+    </p>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Cities:</h1>
+  {% if city_list %}
+    <ul>
+      {% for city in city_list %}
+        <li>{{ city }}</li>
+      {% endfor %}
+    </ul>
+      {% else %}
+    <p>There are no cities in the gallery.</p>
+  {% endif %}
+{% endblock %}

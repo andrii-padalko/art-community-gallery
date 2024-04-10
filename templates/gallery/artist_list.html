@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Artists:</h1>
+  {% if artist_list %}
+    <ul>
+      {% for artist in artist_list %}
+        <li>{{ artist }}</li>
+      {% endfor %}
+    </ul>
+      {% else %}
+    <p>There are no artists in the gallery.</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Countries:</h1>
+  {% if country_list %}
+    <ul>
+      {% for country in country_list %}
+        <li>{{ country }}</li>
+      {% endfor %}
+    </ul>
+      {% else %}
+    <p>There are no country in the gallery.</p>
+  {% endif %}
+{% endblock %}

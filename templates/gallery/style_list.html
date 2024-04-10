@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Styles:</h1>
+  {% if style_list %}
+    <ul>
+      {% for style in style_list %}
+        <li>{{ style }}</li>
+      {% endfor %}
+    </ul>
+      {% else %}
+    <p>There are no style in the gallery.</p>
+  {% endif %}
+{% endblock %}

@@ -1,29 +1,10 @@
 <ul class="sidebar-nav list-group">
-  {% if user.is_authenticated %}
-{#    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>#}
-{#    <li class="list-group-item"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>#}
-  {% else %}
-    <li class="list-group-item"><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
-  {% endif %}
-
-  <br>
-
-{#  <li class="list-group-item"><a href="{% url 'gallery:index' %}">Home</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:artist-list' %}">All artists</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:country-list' %}">All countries</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:city-list' %}">All cities</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:painting-list' %}">All paintings</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:genre-list' %}">All genres</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:style-list' %}">All styles</a></li>#}
-{#  <li class="list-group-item"><a href="{% url 'gallery:material-list' %}">All materials</a></li>#}
-
-  <li class="list-group-item"><a href="#">Home</a></li>
-  <li class="list-group-item"><a href="#">All artists</a></li>
-  <li class="list-group-item"><a href="#">All countries</a></li>
-  <li class="list-group-item"><a href="#">All cities</a></li>
-  <li class="list-group-item"><a href="#">All paintings</a></li>
-  <li class="list-group-item"><a href="#">All genres</a></li>
-  <li class="list-group-item"><a href="#">All styles</a></li>
-  <li class="list-group-item"><a href="#">All materials</a></li>
-
+  <li class="list-group-item"><a href="{% url 'gallery:index' %}">Home</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:artist-list' %}">All artists</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:country-list' %}">All countries</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:city-list' %}">All cities</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:painting-list' %}">All paintings</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:genre-list' %}">All genres</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:style-list' %}">All styles</a></li>
+  <li class="list-group-item"><a href="{% url 'gallery:material-list' %}">All materials</a></li>
 </ul>

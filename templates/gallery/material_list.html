@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Materials:</h1>
+  {% if material_list %}
+    <ul>
+      {% for material in material_list %}
+        <li>{{ material }}</li>
+      {% endfor %}
+    </ul>
+      {% else %}
+    <p>There are no material in the gallery.</p>
+  {% endif %}
+{% endblock %}

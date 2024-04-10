@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Paintings:</h1>
+  {% if painting_list %}
+    <ul>
+      {% for painting in painting_list %}
+        <li>{{ painting }}</li>
+      {% endfor %}
+    </ul>
+      {% else %}
+    <p>There are no paintings in the gallery.</p>
+  {% endif %}
+{% endblock %}

@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
@@ -26,4 +27,29 @@ def index(request):
     return render(request, "gallery/index.html", context=context)
 
 
+class ArtistListView(generic.ListView):
+    model = Artist
 
+
+class CityListView(generic.ListView):
+    model = City
+
+
+class CountryListView(generic.ListView):
+    model = Country
+
+
+class GenreListView(generic.ListView):
+    model = Genre
+
+
+class StyleListView(generic.ListView):
+    model = Style
+
+
+class MaterialListView(generic.ListView):
+    model = Material
+
+
+class PaintingListView(generic.ListView):
+    model = Painting

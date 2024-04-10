@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ painting.title }}
+  </h1>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-3">
+        <p><strong>Artist:</strong> {{ painting.artist.first_name }} {{ painting.artist.last_name }}</p>
+        <p><strong>Created:</strong> {{ painting.creation_year }}</p>
+        <p><strong>Genre:</strong> {{ painting.genre }}</p>
+        <p><strong>Style:</strong> {{ painting.style }}</p>
+        <p><strong>Materials:</strong> {{ painting.materials.all|join:', ' }}</p>
+        <p><a href="https://i.postimg.cc/wBGRMtf7/Creation-of-Adam-1510.jpg" target="_blank">View full size</a></p>
+      </div>
+      <div class="col-sm-9">
+        <img src="{{ painting.image_url }}" alt="{{ painting.title }}">
+      </div>
+    </div>
+  </div>
+{% endblock %}
+

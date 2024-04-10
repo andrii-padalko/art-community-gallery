@@ -31,6 +31,11 @@ class ArtistListView(generic.ListView):
     model = Artist
 
 
+class ArtistDetailView(generic.DetailView):
+    model = Artist
+    queryset = get_user_model().objects.all().select_related("city")
+
+
 class CityListView(generic.ListView):
     model = City
 
@@ -53,3 +58,8 @@ class MaterialListView(generic.ListView):
 
 class PaintingListView(generic.ListView):
     model = Painting
+
+
+class PaintingDetailView(generic.DetailView):
+    model = Painting
+    queryset = Painting.objects.all().prefetch_related("materials")

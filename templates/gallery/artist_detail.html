@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Username: {{ artist.username }}
+  </h1>
+
+  <p><strong>First name:</strong> {{ artist.first_name }}</p>
+  <p><strong>Last name:</strong> {{ artist.last_name }}</p>
+  <p><strong>City:</strong> {{ artist.city }}</p>
+  <p><strong>Is staff:</strong> {{ artist.is_staff }}</p>
+
+  <div class="ml-3">
+    <h4>Paintings</h4>
+    {% for painting in artist.paintings.all %}
+        <ul>
+          <li>{{ painting.title }}</li>
+        </ul>
+    {% empty %}
+      <p>No paintings!</p>
+    {% endfor %}
+  </div>
+{% endblock %}

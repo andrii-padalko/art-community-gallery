@@ -86,7 +86,7 @@ class Painting(models.Model):
         Artist,
         on_delete=models.SET_NULL,
         null=True,
-        related_name="artists"
+        related_name="paintings"
     )
     creation_year = models.IntegerField()
     genre = models.ForeignKey(

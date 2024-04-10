@@ -102,7 +102,8 @@ class Painting(models.Model):
         related_name="styles"
     )
     materials = models.ManyToManyField(Material, related_name="paintings")
-    image_url = models.CharField(max_length=255, null=True, blank=True, )
+    image_url = models.CharField(max_length=255, null=True, blank=True)
+    small_image_url = models.CharField(max_length=255, null=True, blank=True)
 
     class Meta:
         ordering = ("title",)

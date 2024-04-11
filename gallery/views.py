@@ -7,6 +7,7 @@ from django.views import generic
 from gallery.models import Artist, Painting, City, Country, Genre, Style, Material
 
 
+@login_required
 def index(request):
     """View function for the home page of the site."""
 
@@ -27,41 +28,41 @@ def index(request):
     return render(request, "gallery/index.html", context=context)
 
 
-class ArtistListView(generic.ListView):
+class ArtistListView(LoginRequiredMixin, generic.ListView):
     model = Artist
     paginate_by = 4
 
 
-class ArtistDetailView(generic.DetailView):
+class ArtistDetailView(LoginRequiredMixin, generic.DetailView):
     model = Artist
     queryset = get_user_model().objects.all().select_related("city")
 
 
-class CityListView(generic.ListView):
+class CityListView(LoginRequiredMixin, generic.ListView):
     model = City
 
 
-class CountryListView(generic.ListView):
+class CountryListView(LoginRequiredMixin, generic.ListView):
     model = Country
 
 
-class GenreListView(generic.ListView):
+class GenreListView(LoginRequiredMixin, generic.ListView):
     model = Genre
 
 
-class StyleListView(generic.ListView):
+class StyleListView(LoginRequiredMixin, generic.ListView):
     model = Style
 
 
-class MaterialListView(generic.ListView):
+class MaterialListView(LoginRequiredMixin, generic.ListView):
     model = Material
 
 
-class PaintingListView(generic.ListView):
+class PaintingListView(LoginRequiredMixin, generic.ListView):
     model = Painting
     paginate_by = 4
 
 
-class PaintingDetailView(generic.DetailView):
+class PaintingDetailView(LoginRequiredMixin, generic.DetailView):
     model = Painting
     queryset = Painting.objects.all().prefetch_related("materials")

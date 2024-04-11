@@ -13,10 +13,10 @@
         <p><strong>Genre:</strong> {{ painting.genre }}</p>
         <p><strong>Style:</strong> {{ painting.style }}</p>
         <p><strong>Materials:</strong> {{ painting.materials.all|join:', ' }}</p>
-        <p><a href="https://i.postimg.cc/wBGRMtf7/Creation-of-Adam-1510.jpg" target="_blank">View full size</a></p>
+        <p><a href="{{ painting.image_url }}" target="_blank">View full size</a></p>
       </div>
       <div class="col-sm-9">
-        <img src="{{ painting.image_url }}" alt="{{ painting.title }}">
+        <img src="{{ painting.small_image_url }}" alt="{{ painting.title }}">
       </div>
     </div>
   </div>

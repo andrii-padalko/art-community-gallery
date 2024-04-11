@@ -14,7 +14,11 @@
     <h4>Paintings</h4>
     {% for painting in artist.paintings.all %}
         <ul>
-          <li>{{ painting.title }}</li>
+          <li>
+            <a href="{% url 'gallery:painting-detail' painting.id %}">
+              {{ painting.title }}
+            </a>
+          </li>
         </ul>
     {% empty %}
       <p>No paintings!</p>

@@ -14,7 +14,7 @@
       {% for artist in artist_list %}
         <tr>
           <td>{{ artist.id }}</td>
-          <td>{{ artist.username }}</td>
+          <td><a href="{% url 'gallery:artist-detail' artist.id %}">{{ artist.username }}</a></td>
           <td>{{ artist.first_name }}</td>
           <td>{{ artist.last_name }}</td>
           <td>{{ artist.city }}</td>

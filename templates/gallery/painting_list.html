@@ -12,7 +12,7 @@
       {% for painting in painting_list %}
         <tr>
           <td>{{ painting.id }}</td>
-          <td>{{ painting.title }}</td>
+          <td><a href="{% url 'gallery:painting-detail' painting.id %}">{{ painting.title }}</a></td>
           <td>{{ painting.artist.first_name }} {{ painting.artist.last_name }}</td>
         </tr>
       {% endfor %}

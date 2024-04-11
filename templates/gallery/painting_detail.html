@@ -8,7 +8,12 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-3">
-        <p><strong>Artist:</strong> {{ painting.artist.first_name }} {{ painting.artist.last_name }}</p>
+        <p>
+          <strong>Artist:</strong>
+          <a href="{% url 'gallery:artist-detail' painting.artist.id %}">
+            {{ painting.artist.first_name }} {{ painting.artist.last_name }}
+          </a>
+        </p>
         <p><strong>Created:</strong> {{ painting.creation_year }}</p>
         <p><strong>Genre:</strong> {{ painting.genre }}</p>
         <p><strong>Style:</strong> {{ painting.style }}</p>

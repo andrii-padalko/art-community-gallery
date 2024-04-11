@@ -29,6 +29,7 @@ def index(request):
 
 class ArtistListView(generic.ListView):
     model = Artist
+    paginate_by = 4
 
 
 class ArtistDetailView(generic.DetailView):
@@ -58,6 +59,7 @@ class MaterialListView(generic.ListView):
 
 class PaintingListView(generic.ListView):
     model = Painting
+    paginate_by = 4
 
 
 class PaintingDetailView(generic.DetailView):

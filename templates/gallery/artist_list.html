@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Artists:</h1>
+  <h1>Artists:
+    <a class="float-right btn btn-primary" href="{% url 'gallery:painting-create' %}">Add artist</a>
+  </h1>
   {% if artist_list %}
     <table class="table">
       <tr>
@@ -14,7 +16,9 @@
       {% for artist in artist_list %}
         <tr>
           <td>{{ artist.id }}</td>
-          <td><a href="{% url 'gallery:artist-detail' artist.id %}">{{ artist.username }}</a></td>
+          <td><a href="{% url 'gallery:artist-detail' artist.id %}">{{ artist.username }} </a>
+            {% if user == artist %} (Me){% endif %}
+          </td>
           <td>{{ artist.first_name }}</td>
           <td>{{ artist.last_name }}</td>
           <td>{{ artist.city }}</td>

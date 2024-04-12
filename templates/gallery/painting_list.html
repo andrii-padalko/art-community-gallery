@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Paintings:</h1>
+  <h1>Paintings:
+    <a class="float-right btn btn-primary" href="{% url 'gallery:painting-create' %}">Add painting</a>
+  </h1>
   {% if painting_list %}
     <table class="table">
       <tr>

@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Genres:</h1>
+  <h1>Genres:
+    <a class="float-right btn btn-primary" href="{% url 'gallery:genre-create' %}">Add genre</a>
+  </h1>
   {% if genre_list %}
     <ul>
       {% for genre in genre_list %}

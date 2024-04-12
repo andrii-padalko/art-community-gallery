@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Cities:</h1>
+  <h1>Cities:
+    <a class="float-right btn btn-primary" href="{% url 'gallery:city-create' %}">Add city</a>
+  </h1>
   {% if city_list %}
     <ul>
       {% for city in city_list %}

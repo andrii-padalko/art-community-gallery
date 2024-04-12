@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Styles:</h1>
+  <h1>Styles:
+    <a class="float-right btn btn-primary" href="{% url 'gallery:style-create' %}">Add style</a>
+  </h1>
   {% if style_list %}
     <ul>
       {% for style in style_list %}

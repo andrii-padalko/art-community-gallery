@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Materials:</h1>
+  <h1>Materials:
+    <a class="float-right btn btn-primary" href="{% url 'gallery:material-create' %}">Add material</a>
+  </h1>
   {% if material_list %}
     <ul>
       {% for material in material_list %}

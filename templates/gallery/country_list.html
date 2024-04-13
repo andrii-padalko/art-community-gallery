@@ -5,12 +5,31 @@
     <a class="float-right btn btn-primary" href="{% url 'gallery:country-create' %}">Add country</a>
   </h1>
   {% if country_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Country</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
       {% for country in country_list %}
-        <li>{{ country }}</li>
+        <tr>
+          <td>
+            {{ country.id }}
+          </td>
+          <td>
+            {{ country }}
+          </td>
+          <td>
+            <a href="{% url 'gallery:country-update' country.id %}">Update</a>
+          </td>
+          <td>
+            <a style="color: red" href="{% url 'gallery:country-delete' country.id %}">Delete</a>
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
-      {% else %}
+    </table>
+  {% else %}
     <p>There are no country in the gallery.</p>
   {% endif %}
 {% endblock %}

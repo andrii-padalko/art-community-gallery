@@ -3,6 +3,9 @@
 {% block content %}
   <h1>
     {{ painting.title }}
+    <a class="btn btn-danger link-to-page" href="{% url 'gallery:painting-delete' painting.id%}">Delete</a>
+    <a class="btn btn-secondary link-to-page" href="{% url 'gallery:painting-update' painting.id%}">Update</a>
+
   </h1>
 
   <div class="container-fluid">

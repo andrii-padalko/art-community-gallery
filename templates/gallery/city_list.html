@@ -5,12 +5,35 @@
     <a class="float-right btn btn-primary" href="{% url 'gallery:city-create' %}">Add city</a>
   </h1>
   {% if city_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
       {% for city in city_list %}
-        <li>{{ city }}</li>
+        <tr>
+          <td>
+            {{ city.id }}
+          </td>
+          <td>
+            {{ city.city_name }}
+          </td>
+          <td>
+            {{ city.country }}
+          </td>
+          <td>
+            <a href="{% url 'gallery:city-update' city.id %}">Update</a>
+          </td>
+          <td>
+            <a style="color: red" href="{% url 'gallery:city-delete' city.id %}">Delete</a>
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
-      {% else %}
+    </table>
+  {% else %}
     <p>There are no cities in the gallery.</p>
   {% endif %}
 {% endblock %}

@@ -5,12 +5,31 @@
     <a class="float-right btn btn-primary" href="{% url 'gallery:style-create' %}">Add style</a>
   </h1>
   {% if style_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Style</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
       {% for style in style_list %}
-        <li>{{ style }}</li>
+        <tr>
+          <td>
+            {{ style.id }}
+          </td>
+          <td>
+            {{ style }}
+          </td>
+          <td>
+            <a href="{% url 'gallery:style-update' style.id %}">Update</a>
+          </td>
+          <td>
+            <a style="color: red" href="{% url 'gallery:style-delete' style.id %}">Delete</a>
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
-      {% else %}
+    </table>
+  {% else %}
     <p>There are no style in the gallery.</p>
   {% endif %}
 {% endblock %}

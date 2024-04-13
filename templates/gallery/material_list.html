@@ -5,12 +5,31 @@
     <a class="float-right btn btn-primary" href="{% url 'gallery:material-create' %}">Add material</a>
   </h1>
   {% if material_list %}
-    <ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Style</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
       {% for material in material_list %}
-        <li>{{ material }}</li>
+        <tr>
+          <td>
+            {{ material.id }}
+          </td>
+          <td>
+            {{ material }}
+          </td>
+          <td>
+            <a href="{% url 'gallery:material-update' material.id %}">Update</a>
+          </td>
+          <td>
+            <a style="color: red" href="{% url 'gallery:material-delete' material.id %}">Delete</a>
+          </td>
+        </tr>
       {% endfor %}
-    </ul>
-      {% else %}
+    </table>
+  {% else %}
     <p>There are no material in the gallery.</p>
   {% endif %}
 {% endblock %}

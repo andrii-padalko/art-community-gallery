@@ -4,6 +4,7 @@
   <h1>Materials:
     <a class="float-right btn btn-primary" href="{% url 'gallery:material-create' %}">Add material</a>
   </h1>
+  {% include "includes/search_form.html" %}
   {% if material_list %}
     <table class="table">
       <tr>

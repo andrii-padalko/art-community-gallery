@@ -5,6 +5,7 @@
     <a class="float-right btn btn-primary" href="{% url 'gallery:style-create' %}">Add style</a>
   </h1>
   {% if style_list %}
+  {% include "includes/search_form.html" %}
     <table class="table">
       <tr>
         <th>ID</th>

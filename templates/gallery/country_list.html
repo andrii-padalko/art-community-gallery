@@ -4,6 +4,7 @@
   <h1>Countries:
     <a class="float-right btn btn-primary" href="{% url 'gallery:country-create' %}">Add country</a>
   </h1>
+  {% include "includes/search_form.html" %}
   {% if country_list %}
     <table class="table">
       <tr>

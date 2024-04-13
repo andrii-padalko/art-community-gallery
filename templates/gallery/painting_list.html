@@ -5,6 +5,7 @@
     <a class="float-right btn btn-primary" href="{% url 'gallery:painting-create' %}">Add painting</a>
   </h1>
   {% if painting_list %}
+  {% include "includes/search_form.html" %}
     <table class="table">
       <tr>
         <th>ID</th>

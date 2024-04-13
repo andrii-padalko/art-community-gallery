@@ -4,6 +4,7 @@
   <h1>Genres:
     <a class="float-right btn btn-primary" href="{% url 'gallery:genre-create' %}">Add genre</a>
   </h1>
+  {% include "includes/search_form.html" %}
   {% if genre_list %}
     <table class="table">
       <tr>
@@ -28,7 +29,7 @@
           </td>
         </tr>
       {% endfor %}
-
+    </table>
   {% else %}
     <p>There are no genre in the gallery.</p>
   {% endif %}

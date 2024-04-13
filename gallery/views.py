@@ -45,11 +45,33 @@ class ArtistCreateView(LoginRequiredMixin, generic.CreateView):
     form_class = ArtistCreationForm
 
 
+class ArtistUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Artist
+    fields = ["first_name", "last_name", "city"]
+    success_url = reverse_lazy("gallery:artist-list")
+
+
+class ArtistDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Artist
+    success_url = reverse_lazy("gallery:artist-list")
+
+
 class CityListView(LoginRequiredMixin, generic.ListView):
     model = City
 
 
 class CityCreateView(LoginRequiredMixin, generic.CreateView):
+    model = City
+    fields = "__all__"
+    success_url = reverse_lazy("gallery:city-list")
+
+
+class CityDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = City
+    success_url = reverse_lazy("gallery:city-list")
+
+
+class CityUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = City
     fields = "__all__"
     success_url = reverse_lazy("gallery:city-list")
@@ -65,6 +87,17 @@ class CountryCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("gallery:country-list")
 
 
+class CountryUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Country
+    fields = "__all__"
+    success_url = reverse_lazy("gallery:country-list")
+
+
+class CountryDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Country
+    success_url = reverse_lazy("gallery:country-list")
+
+
 class GenreListView(LoginRequiredMixin, generic.ListView):
     model = Genre
 
@@ -72,6 +105,17 @@ class GenreListView(LoginRequiredMixin, generic.ListView):
 class GenreCreateView(LoginRequiredMixin, generic.CreateView):
     model = Genre
     fields = "__all__"
+    success_url = reverse_lazy("gallery:genre-list")
+
+
+class GenreUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Genre
+    fields = "__all__"
+    success_url = reverse_lazy("gallery:genre-list")
+
+
+class GenreDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Genre
     success_url = reverse_lazy("gallery:genre-list")
 
 
@@ -85,6 +129,17 @@ class StyleCreateView(LoginRequiredMixin, generic.CreateView):
     success_url = reverse_lazy("gallery:style-list")
 
 
+class StyleUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Style
+    fields = "__all__"
+    success_url = reverse_lazy("gallery:style-list")
+
+
+class StyleDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Style
+    success_url = reverse_lazy("gallery:style-list")
+
+
 class MaterialListView(LoginRequiredMixin, generic.ListView):
     model = Material
 
@@ -92,6 +147,17 @@ class MaterialListView(LoginRequiredMixin, generic.ListView):
 class MaterialCreateView(LoginRequiredMixin, generic.CreateView):
     model = Material
     fields = "__all__"
+    success_url = reverse_lazy("gallery:material-list")
+
+
+class MaterialUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Material
+    fields = "__all__"
+    success_url = reverse_lazy("gallery:material-list")
+
+
+class MaterialDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Material
     success_url = reverse_lazy("gallery:material-list")
 
 
@@ -108,4 +174,15 @@ class PaintingDetailView(LoginRequiredMixin, generic.DetailView):
 class PaintingCreateView(LoginRequiredMixin, generic.CreateView):
     model = Painting
     form_class = PaintingForm
+    success_url = reverse_lazy("gallery:painting-list")
+
+
+class PaintingUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Painting
+    form_class = PaintingForm
+    success_url = reverse_lazy("gallery:painting-list")
+
+
+class PaintingDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Painting
     success_url = reverse_lazy("gallery:painting-list")

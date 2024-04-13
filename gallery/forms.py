@@ -23,3 +23,9 @@ class ArtistCreationForm(UserCreationForm):
             "last_name",
             "city",
         )
+
+
+# class ArtistUpdateForm(forms.ModelForm):
+#     class Meta:
+#         model = Artist
+#         fields =

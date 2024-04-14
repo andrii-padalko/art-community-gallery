@@ -21,19 +21,11 @@ class AdminSiteTests(TestCase):
         )
 
     def test_city_name_listed(self):
-        """
-        Test that artist's city is in list_display on artist admin page
-        :return:
-        """
         url = reverse("admin:gallery_artist_changelist")
         res = self.client.get(url)
         self.assertContains(res, self.artist.city)
 
     def test_artist_detail_city_name_listed(self):
-        """
-        Test that artist's city is on artist detail admin page
-        :return:
-        """
         url = reverse("admin:gallery_artist_change", args=[self.artist.id])
         res = self.client.get(url)
         self.assertContains(res, self.artist.city)

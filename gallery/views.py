@@ -70,6 +70,7 @@ class ArtistDetailView(LoginRequiredMixin, generic.DetailView):
 class ArtistCreateView(LoginRequiredMixin, generic.CreateView):
     model = Artist
     form_class = ArtistCreationForm
+    success_url = reverse_lazy("gallery:artist-list")
 
 
 class ArtistUpdateView(LoginRequiredMixin, generic.UpdateView):

@@ -1,0 +1,33 @@
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>Paintings:
+      <a class="float-right btn btn-primary" href="{% url 'gallery:painting-create' %}">Add painting</a>
+    </h1>
+    {% if painting_list %}
+    {% include "includes/search_form.html" %}
+      <table class="table">
+        <tr style="font-size: large">
+          <th>ID</th>
+          <th>Title</th>
+          <th>Artist</th>
+        </tr>
+        {% for painting in painting_list %}
+          <tr>
+            <td>{{ painting.id }}</td>
+            <td><a href="{% url 'gallery:painting-detail' painting.id %}">{{ painting.title }}</a></td>
+            <td>{{ painting.artist.first_name }} {{ painting.artist.last_name }}</td>
+          </tr>
+        {% endfor %}
+
+      </table>
+        {% else %}
+      <p>There are no paintings in the gallery.</p>
+    {% endif %}
+  </div>
+{% endblock %}

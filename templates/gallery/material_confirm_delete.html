@@ -1,0 +1,13 @@
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>Delete material?</h1>
+    <p>You are going to delete <span style="font-weight: bold">{{ material }}</span></p>
+    {% include "includes/delete_form.html" %}
+  </div>
+{% endblock %}

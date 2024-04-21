@@ -1,0 +1,12 @@
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h1>{{ object|yesno:"Update,Create" }} painting</h1>
+    {% include "includes/create_update_form.html" %}
+  </div>
+{% endblock %}

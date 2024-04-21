@@ -121,7 +121,7 @@ class PrivatePaintingTests(TestCase):
         Painting.objects.create(title="Test Painting 02", creation_year=1845)
         Painting.objects.create(title="Another Painting", creation_year=2024)
 
-    def test_retrieve_country(self):
+    def test_retrieve_painting(self):
         response = self.client.get(PAINTING_LIST_URL)
         self.assertEqual(response.status_code, 200)
         paintings = Painting.objects.all()

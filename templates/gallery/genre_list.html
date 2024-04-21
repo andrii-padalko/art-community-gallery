@@ -1,36 +1,43 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <h1>Genres:
+  <div class="container mt-5">
+    <h1>Genres:
     <a class="float-right btn btn-primary" href="{% url 'gallery:genre-create' %}">Add genre</a>
   </h1>
-  {% include "includes/search_form.html" %}
-  {% if genre_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Genre</th>
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
-      {% for genre in genre_list %}
-        <tr>
-          <td>
-            {{ genre.id }}
-          </td>
-          <td>
-            {{ genre }}
-          </td>
-          <td>
-            <a href="{% url 'gallery:genre-update' genre.id %}">Update</a>
-          </td>
-          <td>
-            <a style="color: red" href="{% url 'gallery:genres-delete' genre.id %}">Delete</a>
-          </td>
+    {% include "includes/search_form.html" %}
+    {% if genre_list %}
+      <table class="table">
+        <tr style="font-size: large">
+          <th>ID</th>
+          <th>Genre</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no genre in the gallery.</p>
-  {% endif %}
+        {% for genre in genre_list %}
+          <tr>
+            <td>
+              {{ genre.id }}
+            </td>
+            <td>
+              {{ genre }}
+            </td>
+            <td>
+              <a href="{% url 'gallery:genre-update' genre.id %}">Update</a>
+            </td>
+            <td>
+              <a style="color: red" href="{% url 'gallery:genres-delete' genre.id %}">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no genre in the gallery.</p>
+    {% endif %}
+  </div>
+
 {% endblock %}

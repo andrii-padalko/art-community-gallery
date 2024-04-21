@@ -1,36 +1,43 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <h1>Materials:
-    <a class="float-right btn btn-primary" href="{% url 'gallery:material-create' %}">Add material</a>
-  </h1>
-  {% include "includes/search_form.html" %}
-  {% if material_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Style</th>
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
-      {% for material in material_list %}
-        <tr>
-          <td>
-            {{ material.id }}
-          </td>
-          <td>
-            {{ material }}
-          </td>
-          <td>
-            <a href="{% url 'gallery:material-update' material.id %}">Update</a>
-          </td>
-          <td>
-            <a style="color: red" href="{% url 'gallery:material-delete' material.id %}">Delete</a>
-          </td>
+  <div class="container mt-5">
+    <h1>Materials:
+      <a class="float-right btn btn-primary" href="{% url 'gallery:material-create' %}">Add material</a>
+    </h1>
+    {% include "includes/search_form.html" %}
+    {% if material_list %}
+      <table class="table">
+        <tr style="font-size: large">
+          <th>ID</th>
+          <th>Style</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no material in the gallery.</p>
-  {% endif %}
+        {% for material in material_list %}
+          <tr>
+            <td>
+              {{ material.id }}
+            </td>
+            <td>
+              {{ material }}
+            </td>
+            <td>
+              <a href="{% url 'gallery:material-update' material.id %}">Update</a>
+            </td>
+            <td>
+              <a style="color: red" href="{% url 'gallery:material-delete' material.id %}">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no material in the gallery.</p>
+    {% endif %}
+  </div>
+
 {% endblock %}

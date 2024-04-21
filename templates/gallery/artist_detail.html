@@ -1,29 +1,37 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
+
 
 {% block content %}
-  <h1>
-    Username: {{ artist.username }}
-    <a class="btn btn-danger link-to-page" href="{% url 'gallery:artist-delete' artist.id%}">Delete</a>
-    <a class="btn btn-secondary link-to-page" href="{% url 'gallery:artist-update' artist.id%}">Update</a>
-  </h1>
+  <div class="container mt-5">
+    <h1>
+      Username: {{ artist.username }}
+      <a class="btn btn-danger link-to-page" href="{% url 'gallery:artist-delete' artist.id%}">Delete</a>
+      <a class="btn btn-secondary link-to-page" href="{% url 'gallery:artist-update' artist.id%}">Update</a>
+    </h1>
 
-  <p><strong>First name:</strong> {{ artist.first_name }}</p>
-  <p><strong>Last name:</strong> {{ artist.last_name }}</p>
-  <p><strong>City:</strong> {{ artist.city }}</p>
-  <p><strong>Is staff:</strong> {{ artist.is_staff }}</p>
+    <p><strong>First name:</strong> {{ artist.first_name }}</p>
+    <p><strong>Last name:</strong> {{ artist.last_name }}</p>
+    <p><strong>City:</strong> {{ artist.city }}</p>
+    <p><strong>Is staff:</strong> {{ artist.is_staff }}</p>
 
-  <div class="ml-3">
-    <h4>Paintings</h4>
-    {% for painting in artist.paintings.all %}
-        <ul>
-          <li>
-            <a href="{% url 'gallery:painting-detail' painting.id %}">
-              {{ painting.title }}
-            </a>
-          </li>
-        </ul>
-    {% empty %}
-      <p>No paintings!</p>
-    {% endfor %}
+    <div class="ml-3">
+      <h4>Paintings</h4>
+      {% for painting in artist.paintings.all %}
+          <ul>
+            <li>
+              <a href="{% url 'gallery:painting-detail' painting.id %}">
+                {{ painting.title }}
+              </a>
+            </li>
+          </ul>
+      {% empty %}
+        <p>No paintings!</p>
+      {% endfor %}
+    </div>
   </div>
+
 {% endblock %}

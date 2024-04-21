@@ -19,7 +19,7 @@ from .forms import (
 )
 
 
-@login_required
+# @login_required
 def index(request):
     """View function for the home page of the site."""
 

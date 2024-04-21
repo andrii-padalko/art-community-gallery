@@ -1,36 +1,42 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <h1>Countries:
-    <a class="float-right btn btn-primary" href="{% url 'gallery:country-create' %}">Add country</a>
-  </h1>
-  {% include "includes/search_form.html" %}
-  {% if country_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Country</th>
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
-      {% for country in country_list %}
-        <tr>
-          <td>
-            {{ country.id }}
-          </td>
-          <td>
-            {{ country }}
-          </td>
-          <td>
-            <a href="{% url 'gallery:country-update' country.id %}">Update</a>
-          </td>
-          <td>
-            <a style="color: red" href="{% url 'gallery:country-delete' country.id %}">Delete</a>
-          </td>
+  <div class="container mt-5">
+    <h1>Countries:
+      <a class="float-right btn btn-primary" href="{% url 'gallery:country-create' %}">Add country</a>
+    </h1>
+    {% include "includes/search_form.html" %}
+    {% if country_list %}
+      <table class="table">
+        <tr style="font-size: large">
+          <th>ID</th>
+          <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no country in the gallery.</p>
-  {% endif %}
+        {% for country in country_list %}
+          <tr>
+            <td>
+              {{ country.id }}
+            </td>
+            <td>
+              {{ country }}
+            </td>
+            <td>
+              <a href="{% url 'gallery:country-update' country.id %}">Update</a>
+            </td>
+            <td>
+              <a style="color: red" href="{% url 'gallery:country-delete' country.id %}">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no country in the gallery.</p>
+    {% endif %}
+  </div>
 {% endblock %}

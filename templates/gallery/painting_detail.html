@@ -1,32 +1,37 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <h1>
-    {{ painting.title }}
-    <a class="btn btn-danger link-to-page" href="{% url 'gallery:painting-delete' painting.id%}">Delete</a>
-    <a class="btn btn-secondary link-to-page" href="{% url 'gallery:painting-update' painting.id%}">Update</a>
+  <div class="container mt-5">
+    <h1>
+      {{ painting.title }}
+      <a class="btn btn-danger link-to-page" href="{% url 'gallery:painting-delete' painting.id%}">Delete</a>
+      <a class="btn btn-secondary link-to-page" href="{% url 'gallery:painting-update' painting.id%}">Update</a>
 
-  </h1>
+    </h1>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3">
-        <p>
-          <strong>Artist:</strong>
-          <a href="{% url 'gallery:artist-detail' painting.artist.id %}">
-            {{ painting.artist.first_name }} {{ painting.artist.last_name }}
-          </a>
-        </p>
-        <p><strong>Created:</strong> {{ painting.creation_year }}</p>
-        <p><strong>Genre:</strong> {{ painting.genre }}</p>
-        <p><strong>Style:</strong> {{ painting.style }}</p>
-        <p><strong>Materials:</strong> {{ painting.materials.all|join:', ' }}</p>
-        <p><a href="{{ painting.image_url }}" target="_blank">View full size</a></p>
-      </div>
-      <div class="col-sm-9">
-        <img src="{{ painting.small_image_url }}" alt="{{ painting.title }}">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3">
+          <p>
+            <strong>Artist:</strong>
+            <a href="{% url 'gallery:artist-detail' painting.artist.id %}">
+              {{ painting.artist.first_name }} {{ painting.artist.last_name }}
+            </a>
+          </p>
+          <p><strong>Created:</strong> {{ painting.creation_year }}</p>
+          <p><strong>Genre:</strong> {{ painting.genre }}</p>
+          <p><strong>Style:</strong> {{ painting.style }}</p>
+          <p><strong>Materials:</strong> {{ painting.materials.all|join:', ' }}</p>
+          <p><a href="{{ painting.image_url }}" target="_blank">View full size</a></p>
+        </div>
+        <div class="col-sm-9">
+          <img src="{{ painting.small_image_url }}" alt="{{ painting.title }}">
+        </div>
       </div>
     </div>
   </div>
 {% endblock %}
-

@@ -1,40 +1,47 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <h1>Cities:
-    <a class="float-right btn btn-primary" href="{% url 'gallery:city-create' %}">Add city</a>
-  </h1>
-  {% include "includes/search_form.html" %}
-  {% if city_list %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Country</th>
-        <th>Update</th>
-        <th>Delete</th>
-      </tr>
-      {% for city in city_list %}
-        <tr>
-          <td>
-            {{ city.id }}
-          </td>
-          <td>
-            {{ city.city_name }}
-          </td>
-          <td>
-            {{ city.country }}
-          </td>
-          <td>
-            <a href="{% url 'gallery:city-update' city.id %}">Update</a>
-          </td>
-          <td>
-            <a style="color: red" href="{% url 'gallery:city-delete' city.id %}">Delete</a>
-          </td>
+  <div class="container mt-5">
+    <h1>Cities:
+      <a class="float-right btn btn-primary" href="{% url 'gallery:city-create' %}">Add city</a>
+    </h1>
+    {% include "includes/search_form.html" %}
+    {% if city_list %}
+      <table class="table">
+        <tr style="font-size: large">
+          <th>ID</th>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Update</th>
+          <th>Delete</th>
         </tr>
-      {% endfor %}
-    </table>
-  {% else %}
-    <p>There are no cities in the gallery.</p>
-  {% endif %}
+        {% for city in city_list %}
+          <tr>
+            <td>
+              {{ city.id }}
+            </td>
+            <td>
+              {{ city.city_name }}
+            </td>
+            <td>
+              {{ city.country }}
+            </td>
+            <td>
+              <a href="{% url 'gallery:city-update' city.id %}">Update</a>
+            </td>
+            <td>
+              <a style="color: red" href="{% url 'gallery:city-delete' city.id %}">Delete</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no cities in the gallery.</p>
+    {% endif %}
+  </div>
+
 {% endblock %}

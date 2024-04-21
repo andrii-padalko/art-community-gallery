@@ -1,7 +1,13 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <h1>Delete painting?</h1>
-  <p>You are going to delete <span style="font-weight: bold">{{ painting }}</span></p>
-  {% include "includes/delete_form.html" %}
+  <div class="container mt-5">
+    <h1>Delete painting?</h1>
+    <p>You are going to delete <span style="font-weight: bold">{{ painting }}</span></p>
+    {% include "includes/delete_form.html" %}
+  </div>
 {% endblock %}

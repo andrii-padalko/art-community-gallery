@@ -1,6 +1,12 @@
-{% extends "base.html" %}
+{% extends "layouts/base_sections.html" %}
+
+{% block header %}
+  {% include 'includes/navigation.html' %}
+{% endblock header %}
 
 {% block content %}
-  <p>Logged out!</p>
-  <a href="{% url 'login'%}">Click here to login again.</a>
+  <div class="container mt-5">
+    <p>Logged out!</p>
+    <a href="{% url 'login'%}">Click here to login again.</a>
+  </div>
 {% endblock %}

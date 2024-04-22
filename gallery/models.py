@@ -40,9 +40,6 @@ class Artist(AbstractUser):
         related_name="cities"
     )
 
-    # class Meta:
-    #     ordering = ("username",)
-
     def __str__(self):
         return f"{self.first_name} {self.last_name} ({self.username})"
 
@@ -104,9 +101,6 @@ class Painting(models.Model):
     materials = models.ManyToManyField(Material, related_name="paintings")
     image_url = models.CharField(max_length=255, null=True, blank=True)
     small_image_url = models.CharField(max_length=255, null=True, blank=True)
-
-    # class Meta:
-    #     ordering = ("title",)
 
     def __str__(self):
         return self.title

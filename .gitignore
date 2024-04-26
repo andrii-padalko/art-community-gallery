@@ -1,6 +1,6 @@
 .idea
 venv
 **__pycache__
-/gallery/draft.py
 db.sqlite3
 .env
+/draft.py
